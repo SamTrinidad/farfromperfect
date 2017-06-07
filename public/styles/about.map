@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "../../style/sass/about.css",
+	"sources": [
+		"../../style/sass/about.scss"
+	],
+	"sourcesContent": [
+		"#a0 {\r\n    position: fixed;\r\n    z-index: -10;\r\n    height: 100%;\r\n    width: 100%;\r\n    background-color: #eee;\r\n}"
+	],
+	"mappings": ";AAAA,AAAA,GAAG,CAAC;EACA,QAAQ,EAAE,KAAM;EAChB,OAAO,EAAE,GAAI;EACb,MAAM,EAAE,IAAK;EACb,KAAK,EAAE,IAAK;EACZ,gBAAgB,EAAE,IAAK;CAC1B",
+	"names": []
+}
