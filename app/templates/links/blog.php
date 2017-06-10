@@ -1,6 +1,6 @@
 <?php
 
-require_once 'dbConnect.php';
+require_once '/farfromperfect/app/db/dbConnect.php';
 
 class Blog extends Controller{
     
@@ -15,6 +15,6 @@ class Blog extends Controller{
     }
 
     public function login($logincode = ''){
-
+        
     }
 }

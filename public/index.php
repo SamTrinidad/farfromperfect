@@ -51,8 +51,8 @@ $document_root = str_repeat('../',(substr_count(getenv('SCRIPT_URL'),'/')));
 </div>
 <style>
 .loader {
-    -webkit-animation: load-out 1s ease-in;
-    animation: load-out 1s ease-in;
+    -webkit-animation: load-out 1s;
+    animation: load-out 1s;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 }
@@ -60,24 +60,20 @@ $document_root = str_repeat('../',(substr_count(getenv('SCRIPT_URL'),'/')));
 @-webkit-keyframes load-out {
     from {
         top: 0;
-        opacity: 1;
     }
 
     to {
         top: 100%;
-        opacity: 0;
     }
 }
 
 @keyframes load-out {
     from {
         top: 0;
-        opacity: 1;
     }
 
     to {
         top: -100%;
-        opacity: 0;
     }
 }
 </style>

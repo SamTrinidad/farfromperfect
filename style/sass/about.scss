@@ -1,7 +1,22 @@
+#aboutContainer {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+}
+
 #a0 {
-    position: fixed;
+    position: absolute;
     z-index: -10;
     height: 100%;
     width: 100%;
-    background-color: #eee;
+    background-image: url('../media/aboutcover.jpg');
+    background-attachment: fixed;
+}
+
+#a1 {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    top: 100%;
+    background-color: white;
 }
