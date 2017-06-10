@@ -1,6 +1,9 @@
 <?php
 
+require_once 'dbConnect.php';
+
 class Blog extends Controller{
+    
 
     public function index() {
 ?>
