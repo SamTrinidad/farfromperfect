@@ -1,1 +1,1 @@
-WAddup <?= $data['name']?>
+WAddup
