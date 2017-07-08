@@ -16,3 +16,11 @@ if(isset($_SESSION['id'])){
 
 
 <h1>Blog</h1>
+
+<?php
+    foreach($data['blog']->getPosts() as $post){
+        echo $post->getTitle() . '<br>';
+        echo $post->getDate() . '<br>';
+        echo $post->getText() . '<br><br>';
+    }
+?>

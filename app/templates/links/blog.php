@@ -2,8 +2,12 @@
 
 class Blog extends Controller{
     
+
     public function index($name = '') {   
-        $this->view('blog/index');
+        include $_SERVER['DOCUMENT_ROOT'] . '/farfromperfect/app/templates/models/BlogContainer.php';
+        $blogcontainer = BlogContainer::Instance();
+
+        $this->view('blog/index', ['blog'=>$blogcontainer]);
     }
 
     public function login($logincode = '', $connection = ''){ //check for parameters at login
@@ -14,12 +18,11 @@ class Blog extends Controller{
             //check if there is a post method on the login
             if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-                //cleanse the output
+                //cleanse the input
                 $uname = $this->test_input($_POST['uname']);
                 $pwd = $this->test_input($_POST['pwd']);
                 
-                $user = $this->model('User', ['uname'=>$uname,'pwd'=>$pwd]);     
-
+                $user = $this->model('User', ['uname'=>$uname,'pwd'=>$pwd]);
             }
 
             //check if user is logged in
@@ -39,7 +42,7 @@ class Blog extends Controller{
         session_start();
         session_unset(); 
         session_destroy();
-        $this->view('blog/index');
+        $this->index();
     }
 
     public function addpost(){
@@ -47,7 +50,7 @@ class Blog extends Controller{
         if(isset($_SESSION['id'])){
             $this->view('blog/addpost');
         }else{
-            $this->view('blog/index');
+            $this->index();
         }
     }
 
