@@ -9,6 +9,7 @@ class Blog extends Controller{
     public function login($logincode = '', $connection = ''){ //check for parameters at login
         if($logincode == 'THIQQSUCC' && $connection == 'connect'){
             $uname = $pwd = '';
+            $user;
 
             //check if there is a post method on the login
             if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -16,38 +17,37 @@ class Blog extends Controller{
                 //cleanse the output
                 $uname = $this->test_input($_POST['uname']);
                 $pwd = $this->test_input($_POST['pwd']);
+                
+                $user = $this->model('User', ['uname'=>$uname,'pwd'=>$pwd]);     
 
-                include $_SERVER['DOCUMENT_ROOT'] . '/farfromperfect/app/db/dbConnect.php'; //include the db credentials
-
-                $db = new dbConnect(); //create a new object of the connection
-
-                $connection = $db->getConnection(); //get the connection instance
-
-                if($connection){
-
-                    //real escape the strings and strip slashes
-                    $uname = $db->clean($uname);
-                    $pwd = $db->clean($pwd);
-
-                    $query = $connection->query("select * from members where password='$pwd' AND username='$uname'"); //query for login
-
-                    $rows = mysqli_num_rows($query);
-
-                    if($rows == 1){
-                        $this->view('blog/connect', ['uname' => $uname]); //pass view with user
-                        return;
-                    }
-                    $query->close();
-                    $db->closeConnection();
-                }       
             }
 
-            $this->view('blog/badlogin'); //if anything fails view bad login
-            
+            //check if user is logged in
+            if($user->isLogged()){
+                $this->view('blog/connect', ['id'=>$user->getId(), 'uname'=>$user->getName(), 'email'=>$user->getEmail()]);
+            }else{
+                $this->view('blog/badlogin'); //if anything fails view bad login
+            }        
         }else if($logincode == 'THIQQSUCC'){ //go to login page if no other parameters
             $this->view('blog/login');
         }else{
             $this->index(); //go to blog page by default
+        }
+    }
+
+    public function logout(){
+        session_start();
+        session_unset(); 
+        session_destroy();
+        $this->view('blog/index');
+    }
+
+    public function addpost(){
+        session_start();
+        if(isset($_SESSION['id'])){
+            $this->view('blog/addpost');
+        }else{
+            $this->view('blog/index');
         }
     }
 
