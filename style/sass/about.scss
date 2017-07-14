@@ -1,22 +1,83 @@
 #aboutContainer {
-    position: relative;
     width: 100%;
-    min-height: 100%;
+    height: 100vh;
+}
+
+section {
+    width: 100%;
+}
+
+h1{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    font-size: 7em;
+    line-height: 0.76em;
+    letter-spacing: -6px;
 }
 
 #a0 {
-    position: absolute;
-    z-index: -10;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
     background-image: url('../media/aboutcover.jpg');
     background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #a1 {
-    position: absolute;
-    z-index: 0;
+    background-color: #eee;
+    padding: 4em 0;
+
+    p {
+        display: block;
+        font-size: 1.2em;
+        position: relative;
+        width: 60%;
+        margin: auto;
+    }
+    h2 {
+        display: block;
+        font-size: 1.5em;
+        width: 60%;
+        margin: auto;
+        border-bottom: 5px solid;
+    }
+}
+
+#a3 {
+    position: relative;
+    height: 50vh;
+    vertical-align: bottom;
+    background-image: url('../media/aboutcover.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    -webkit-filter: grayscale(80%);
+    -ms-filter: grayscale(80%);
+    filter: grayscale(80%);
+
+    #coverfooter {
+        position: absolute;
+        bottom: 1em;
+    }
+}
+
+
+#coverfooter {
+    color: #fff;
+    z-index: 10;
     width: 100%;
-    top: 100%;
-    background-color: white;
+    bottom: 0.5em;
+    text-align: center;
+    .clogo {
+        display: inline-block;
+        vertical-align: middle;
+        width: 2em;
+        margin: 1em;
+    }
+    span {
+        display: block;
+        font-size: 0.75em;
+    }
 }

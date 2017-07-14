@@ -2,7 +2,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/farfromperfect/app/templates/models/BlogPost.php';
 final class BlogContainer {
 
-    private $BlogPosts = [];
+    private $BlogPosts = []; //blog posts within the array
 
 //singleton instance of the blog
     public static function Instance(){
@@ -27,13 +27,13 @@ final class BlogContainer {
 
         $connection = $db->getConnection(); //get the connection instance
 
-
+        
         if($connection){
             $query = $connection->query("select * from blogposts");
 
             while($row = $query->fetch_array()){ //fetch all blog posts
 
-                $post = new BlogPost($row['pid'], $row['date'],$row['title'],$row['text']);
+                $post = new BlogPost($row['pid'], $row['date'],$row['title'],$row['text']); //create a blogpost object
 
                 array_push($this->BlogPosts, $post);
             }

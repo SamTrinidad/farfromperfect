@@ -1,0 +1,76 @@
+#a0 {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(250, 220, 211,0.6);
+}
+
+form{
+    position: relative;
+    top: 20%;
+    left: 50%;
+    width: 500px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 1em;
+    transform: translate(-250px,0);
+    border-radius: 10px;
+    background-color: rgba(100,100,100,0.1);
+}
+
+.formblock {
+    margin-bottom: 1em;
+}
+
+label,
+textarea,
+input{
+    position: relative;
+    display:inline-block;
+    vertical-align: top;
+    border-radius: 10px;
+    padding: 0.5em;
+    box-sizing: border-box;
+    margin-top: 0.2em;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    font-weight: bolder;
+    height: 3em;
+    width: 30%;
+    margin: 1em;
+    border: none;
+    border-radius: 10px;
+    background-color: #ccc;
+    transition: ease 0.5s all;
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px -2px #333;
+    transition: ease 0.5s all;
+}
+
+label {
+    font-weight: bold;
+    width: 30%;
+    left:0;
+    text-align: left;
+}
+input, textarea {
+    width: 65%;
+    right: 0;
+    border: none;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+input {
+    line-height: 1.5em;
+}
+
+textarea {
+    resize: none;
+}

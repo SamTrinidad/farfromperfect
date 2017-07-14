@@ -1,0 +1,8 @@
+<?php
+
+class Photos extends Controller{
+
+    public function index() {
+        $this->view('photos/index');
+    }
+}

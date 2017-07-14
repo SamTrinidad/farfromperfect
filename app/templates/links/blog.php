@@ -5,8 +5,11 @@ class Blog extends Controller{
 
     public function index($name = '') {   
         include $_SERVER['DOCUMENT_ROOT'] . '/farfromperfect/app/templates/models/BlogContainer.php';
+
+        //get the blog container singleton
         $blogcontainer = BlogContainer::Instance();
 
+        //push it to the view
         $this->view('blog/index', ['blog'=>$blogcontainer]);
     }
 
@@ -38,6 +41,7 @@ class Blog extends Controller{
         }
     }
 
+//destroy current session
     public function logout(){
         session_start();
         session_unset(); 
@@ -45,6 +49,7 @@ class Blog extends Controller{
         $this->index();
     }
 
+//addpost route if logged in
     public function addpost(){
         session_start();
         if(isset($_SESSION['id'])){

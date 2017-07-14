@@ -17,8 +17,8 @@ $document_root = str_repeat('../',(substr_count(getenv('SCRIPT_URL'),'/')));
     </a>
     <a href="<?= $document_root ?>/farfromperfect/public/about/" class="link">About</a>
     <a href="<?= $document_root ?>/farfromperfect/public/music/" class="link">Music</a>
-    <a href="<?= $document_root ?>/farfromperfect/public/shows/" class="link">Shows</a>
-    <a href="<?= $document_root ?>/farfromperfect/public/blog/" class="link">Blog</a>
+    <a href="<?= $document_root ?>/farfromperfect/public/photos/" class="link">Photos</a>
+    <!-- <a href="<?= $document_root ?>/farfromperfect/public/blog/" class="link">Blog</a> -->
     <a href="<?= $document_root ?>/farfromperfect/public/contact/" class="link">Contact</a>
 </nav>
 
@@ -51,6 +51,8 @@ $document_root = str_repeat('../',(substr_count(getenv('SCRIPT_URL'),'/')));
 </div>
 <style>
 .loader {
+    font-size: 2em;
+    font-weight: bolder;
     -webkit-animation: load-out 1s;
     animation: load-out 1s;
     -webkit-animation-fill-mode: forwards;
