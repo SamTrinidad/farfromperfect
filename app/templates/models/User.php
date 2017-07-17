@@ -1,5 +1,7 @@
 <?php
 
+include $_SERVER['DOCUMENT_ROOT'] . '/farfromperfect/app/db/dbConnect.php'; //include the db credentials
+
 class User{
 
     private $id;
@@ -8,8 +10,6 @@ class User{
     private $logged = false;
 
     public function __construct($data){
-
-        include $_SERVER['DOCUMENT_ROOT'] . '/farfromperfect/app/db/dbConnect.php'; //include the db credentials
 
         $db = new dbConnect(); //create a new object of the connection
 
