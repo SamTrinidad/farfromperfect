@@ -1,5 +1,7 @@
 <?php
+include $_SERVER['DOCUMENT_ROOT'] . '/farfromperfect/app/db/dbConnect.php'; //include the db credentials
 include $_SERVER['DOCUMENT_ROOT'] . '/farfromperfect/app/templates/models/BlogPost.php';
+
 final class BlogContainer {
 
     private $BlogPosts = []; //blog posts within the array
@@ -21,8 +23,7 @@ final class BlogContainer {
 
 //function to fill the blog's array with blog posts
     private function fill(){
-        include $_SERVER['DOCUMENT_ROOT'] . '/farfromperfect/app/db/dbConnect.php'; //include the db credentials
-
+        
         $db = new dbConnect(); //create a new object of the connection
 
         $connection = $db->getConnection(); //get the connection instance

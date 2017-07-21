@@ -1,5 +1,8 @@
 <?php
 
+include $_SERVER['DOCUMENT_ROOT'] . '/farfromperfect/app/db/dbConnect.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/farfromperfect/app/templates/models/Song.php';
+
 final class MusicPlaylist {
 
     private $songs = [];
@@ -11,7 +14,7 @@ final class MusicPlaylist {
             $inst = new MusicPlaylist();
         }
 
-        $this->fill();
+        $inst->fill();
 
         return $inst;
     }
@@ -20,12 +23,11 @@ final class MusicPlaylist {
     }
 
     public function getSongs(){
-        return $this->Songs;
+        return $this->songs;
     }
 
     private function fill(){
-        include $_SERVER['DOCUMENT_ROOT'] . '/farfromperfect/app/db/dbConnect.php'; //include the db credentials
-
+        
         $db = new dbConnect(); //create a new object of the connection
 
         $connection = $db->getConnection(); //get the connection instance
@@ -34,7 +36,7 @@ final class MusicPlaylist {
             $query = $connection->query("select * from songs");
 
             while($row = $query->fetch_array()){
-                $song = new Song($row['sid'], $row['title'],$row['duration'],$row['path']); //songs
+                $song = new Song($row['sid'], $row['title'],$row['duration'], $row['year'], $row['path']); //songs
 
                 array_push($this->songs, $song);
             }
