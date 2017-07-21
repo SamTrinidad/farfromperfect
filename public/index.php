@@ -8,7 +8,7 @@ $document_root = str_repeat('../',(substr_count(getenv('SCRIPT_URL'),'/')));
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Far From Perfect</title>
     <link rel="stylesheet" href="<?= $document_root ?>/farfromperfect/public/styles/style.css">
-
+    <script type="application/javascript" src="<?= $document_root ?>/farfromperfect/public/js/jquery-3.1.1.min.js"></script>
 </head>
 <body>
 <nav>
@@ -79,7 +79,6 @@ $document_root = str_repeat('../',(substr_count(getenv('SCRIPT_URL'),'/')));
     }
 }
 </style>
-<script type="application/javascript" src="<?= $document_root ?>/farfromperfect/public/js/jquery-3.1.1.min.js"></script>
 <script type="application/javascript" src="<?= $document_root ?>/farfromperfect/public/js/script.js"></script>
 </body>
 </html>
