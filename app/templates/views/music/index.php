@@ -1,9 +1,11 @@
-<!-- <link rel="stylesheet" href="/farfromperfect/public/styles/music.css"> -->
+ <link rel="stylesheet" href="/farfromperfect/public/styles/music.css"> 
 <script src="//api.html5media.info/1.2.2/html5media.min.js"></script>
 <script src="/farfromperfect/public/js/music.js"></script>
 <div id="musicplayer">
-<div id="currentSong"><div id="currentTitle"></div><div id="currentYear"></div><div id="currentDuration"></div><audio preload="" id="audio" controls="controls" src="/farfromperfect/app/songs/4.mp3">Your browser does not support HTML5 Audio.</audio></div>
+<div id="currentSong"><h2><div id="currentTitle"></div></h2>&nbsp;&nbsp;<div id="currentYear"></div><div id="currentDuration"></div></div>
 <div id="next-prev"><div id="prevsong">&laquo;</div><div id="nextsong">&raquo;</div></div>
+<audio preload="" id="audio" controls="controls" src="/farfromperfect/app/songs/4.mp3">Your browser does not support HTML5 Audio.</audio>
+
 <?php
 //reverse chronological order
 $playlist = array_reverse($data['playlist']->getSongs(), true);

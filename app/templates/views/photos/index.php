@@ -1,9 +1,16 @@
-<link rel="stylesheet" href="/farfromperfect/public/styles/about.css">
-<section id="a0">
-    <h1>Reaching perfection through music</h1>
-</section>
-<section id="a1">
+<!-- <link rel="stylesheet" href="/farfromperfect/public/styles/photos.css"> -->
+<?php
+session_start();
 
-</section>
-<section id="a2"></section>
-<section id="a3"></section>
+if(isset($_SESSION['id'])){
+    $document_root = str_repeat('../',(substr_count(getenv('SCRIPT_URL'),'/')));
+?>
+<div class="userContainer">
+    <div class="uname"><?=$_SESSION['uname']?></div>
+    <button id="addPost">Add Post</button>
+    <a href="<?= $document_root ?>/farfromperfect/public/photos/logout"><button>Logout</button></a>
+</div>
+
+<?php
+    }
+?>
