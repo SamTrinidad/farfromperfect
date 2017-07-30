@@ -8,7 +8,7 @@
 
 <?php
 //reverse chronological order
-$playlist = array_reverse($data['playlist']->getSongs(), true);
+$playlist = $data['playlist']->getSongs();
 $tracknum = 1;
 
 //iterate through all the songs

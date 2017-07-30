@@ -32,6 +32,8 @@ var MusicPlayer = function() {
             $('#currentTitle').text(playlist[sid].title);
             $('#currentYear').text("(" + playlist[sid].year + ")");
             $('#currentDuration').text(playlist[sid].duration);
+
+            return sid;
         }
 
         function init(num){
@@ -41,8 +43,8 @@ var MusicPlayer = function() {
         }
         
         function play(num){
-            changeTitle();
-            audio.attr("src", "/farfromperfect/app/songs/" + current + ".mp3");
+            var sid = changeTitle();
+            audio.attr("src", playlist[sid].path);
             audio.get(0).play(); //gotta use get(0) to access the dom
         }
 
@@ -96,4 +98,3 @@ $(document).ready(function(){
         p.next();
     })
 });
-

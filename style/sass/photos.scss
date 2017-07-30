@@ -1,0 +1,16 @@
+$usercontainer: rgba(0,0,0,0.3);
+$userbutton: green;
+
+$fontcolor: black;
+
+.userContainer {
+    max-width: 100%;
+    background-color: $usercontainer;
+    padding: 1em;
+    color: $fontcolor;
+    .uname {
+        font-size: 2em;
+        border-bottom: 2px solid $fontcolor;
+        margin-bottom: 5px;
+    }
+}

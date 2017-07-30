@@ -1,9 +1,14 @@
 <?php
 
+include $_SERVER['DOCUMENT_ROOT'] . '/farfromperfect/app/templates/models/Album.php';
+
 class Photos extends Controller{
 
     public function index() {
-        $this->view('photos/index');
+
+        $album = Album::Instance();
+
+        $this->view('photos/index', ['album'=>$album]);
     }
 
     public function login($logincode = '', $connection = ''){ //check for parameters at login
@@ -51,7 +56,7 @@ class Photos extends Controller{
         }
     }
 
-//testing the input so there isnt any injections
+//testing the input
     private function test_input($data) {
         $data = trim($data);
         $data = stripslashes($data);

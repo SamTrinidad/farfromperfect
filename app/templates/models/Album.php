@@ -1,11 +1,11 @@
 <?php
 
 include $_SERVER['DOCUMENT_ROOT'] . '/farfromperfect/app/db/dbConnect.php';
-include 'Song.php';
+include 'Photo.php';
 
-final class MusicPlaylist {
+final class Album {
 
-    private $songs = [];
+    private $photos = [];
 
 
     public static function Instance(){
@@ -18,11 +18,12 @@ final class MusicPlaylist {
 
         return $inst;
     }
+    
     private function __construct(){
     }
 
-    public function getSongs(){
-        return $this->songs;
+    public function getPhotos(){
+        return $this->photos;
     }
 
     private function fill(){
@@ -32,17 +33,15 @@ final class MusicPlaylist {
         $connection = $db->getConnection(); //get the connection instance
  
         if($connection){
-            $query = $connection->query("select * from songs ORDER BY sid DESC");
+            $query = $connection->query("SELECT photos.*, members.name FROM photos, members JOIN members_photos ON members_photos.uid = members.id;");
 
             while($row = $query->fetch_array()){
-                $song = new Song($row['sid'], $row['title'],$row['duration'], $row['year'], $row['path']); //songs
-
-                array_push($this->songs, $song);
+                $photo = new Photo($row['sid'], $row['description'],$row['date'], $row['path'], $row['name']); 
+                array_push($this->photos, $song);
             }
         }else{
             echo "Cannot Retrieve Archive";
         }
-
         $db->closeConnection();
     }
 }
