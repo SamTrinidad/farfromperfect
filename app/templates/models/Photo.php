@@ -8,7 +8,7 @@ class Photo {
     private $person;
 
     public function __construct($pid, $description, $date, $path, $person){
-        $this->sid = $sid;
+        $this->pid = $pid;
         $this->description = $description;
         $this->date = $date;
         $this->path = $path;

@@ -19,8 +19,35 @@ if(isset($_SESSION['id'])){
 <?php
 }
 ?>
-
-
 <div id=albumContainer>
+<?php
+//get the photos from the controller
+$album = $data['album']->getPhotos();
+//iterate through all the songs
+
+$json = new stdClass();
+
+foreach($album as $photo){
+    $object = new stdClass();
+
+    $object->pid = $photo->getId();
+    $object->description = $photo->getDescription();
+    $object->path = $photo->getPath();
+    $object->date = $photo->getDate();
     
+    $json->{$object->pid} = $object;
+?>
+<!-- Push the songs into the js file  -->
+    <div class="photo" id="pid<?=$object->pid ?>">
+        <div class="photodescription"><?= $object->description ?>.</div>
+        <div class="photodate"><?= $object->date ?></div>
+        <img src="<?= $object->path?>">
+        
+    </div>
+<?php
+}
+?>
+<script>
+pl = <?= json_encode($json)?>
+</script>
 </div>

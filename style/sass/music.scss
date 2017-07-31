@@ -1,11 +1,13 @@
 
-$currentTitle: white;
+$currentTitle: #555;
 $currentBG: #ccc;
-$playerBG: #ccc;
-$playerFont: #eee;
+$playerBG: white;
+$playerBG2: #FFC0CB;
+$playerBG3: rgba(255, 192, 203,0.3);
+$playerFont: #555;
 
 body {
-    background-color: #333;
+    background-color: #F08080;
 }
 
 
@@ -17,6 +19,7 @@ body {
     max-width: 600px;
     background-color: $playerBG;
     color: $playerFont;
+    overflow: hidden;
 }
 
 #audio {
@@ -78,5 +81,11 @@ body {
     }
     &:last-of-type {
         border-bottom: none;
+    }
+    &:nth-of-type(odd) {
+        background-color: $playerBG3;
+    }
+    &:nth-of-type(even) {
+        background-color: $playerBG2;
     }
 }

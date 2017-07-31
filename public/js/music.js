@@ -1,7 +1,15 @@
 "use strict"
 //global variables
-var playlist = [];
-var p;
+var p, pl;
+
+
+Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
 
 //music player module
 var MusicPlayer = function() {
@@ -24,16 +32,13 @@ var MusicPlayer = function() {
             }
         }),
         changeTitle = function() {
-
             //adjust sid to match the playlist
-            var sid = max - current;
-
             //change the title of the current song playing
-            $('#currentTitle').text(playlist[sid].title);
-            $('#currentYear').text("(" + playlist[sid].year + ")");
-            $('#currentDuration').text(playlist[sid].duration);
+            $('#currentTitle').text(pl[current].title);
+            $('#currentYear').text("(" + pl[current].year + ")");
+            $('#currentDuration').text(pl[current].duration);
 
-            return sid;
+            return current;
         }
 
         function init(num){
@@ -44,7 +49,7 @@ var MusicPlayer = function() {
         
         function play(num){
             var sid = changeTitle();
-            audio.attr("src", playlist[sid].path);
+            audio.attr("src", pl[sid].path);
             audio.get(0).play(); //gotta use get(0) to access the dom
         }
 
@@ -84,11 +89,12 @@ var MusicPlayer = function() {
 
 $(document).ready(function(){
     p = new MusicPlayer();
-    p.init(playlist.length);
+
+    p.init(Object.size(pl));
 
     //click commands for the music player
     $(".song").click(function(){  
-        var songId = $(this).attr('id').replace('sid','');;
+        var songId = $(this).attr('id').replace('sid','');
         p.set(songId);
     });
     $('#prevsong').click(function() {
@@ -98,3 +104,4 @@ $(document).ready(function(){
         p.next();
     })
 });
+

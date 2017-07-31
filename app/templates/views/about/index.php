@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="/farfromperfect/public/styles/about.css">
 <div id="aboutcontainer">
 <section id="a0">
-    <h1>Far<br>From<br>Perfect</h1>
+    <object type="image/svg+xml" data="/farfromperfect/public/media/ffp.svg" class="coverLogo">
+    </object>
 </section>
 <section id="a1">
 <h2>What we're about</h2>

@@ -9,6 +9,7 @@ section {
 
 h1{
     position: absolute;
+    color: white;
     top: 10%;
     left: 10%;
     font-size: 7em;
@@ -79,5 +80,23 @@ h1{
     span {
         display: block;
         font-size: 0.75em;
+    }
+}
+
+@media only screen and (max-width: 1190px) {
+    #a0 {
+        animation: pan 20s linear infinite;
+    }
+
+    @keyframes pan {
+        0% {
+            background-position-x: left;
+        }
+        50% {
+            background-position-x: right;
+        }
+        100% {
+            background-position-x: left;
+        }
     }
 }

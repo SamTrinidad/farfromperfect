@@ -7,9 +7,12 @@
 <audio preload="" id="audio" controls="controls" src="/farfromperfect/app/songs/4.mp3">Your browser does not support HTML5 Audio.</audio>
 
 <?php
-//reverse chronological order
+
+//get the songs from the controller
 $playlist = $data['playlist']->getSongs();
 $tracknum = 1;
+
+$json = new stdClass();
 
 //iterate through all the songs
 foreach($playlist as $song){
@@ -27,10 +30,11 @@ foreach($playlist as $song){
 
     $object->path = $song->getPath();
     
-    $json = json_encode($object);
+    $json->{$object->sid} = $object;
+    // $json = json_encode($object);
 ?>
-<script>playlist.push(<?= $json?>);</script>
-    <div class="song" id="sid<?=$object->sid ?>">
+<!-- Push the songs into the js file  -->
+    <div class="song" id="sid<?=$object->sid ?>" data-path="<?=$object->path?>">
         <div class="trackNum"><?= $tracknum++ ?>.</div>
         <div class="songtitle"><?= $object->title?> (<?= $object->year ?>)</div>
         <div class="songduration"><?= $object->duration ?></div>
@@ -38,4 +42,7 @@ foreach($playlist as $song){
 <?php
 }
 ?>
+<script>
+pl = <?= json_encode($json)?>
+</script>
 </div>

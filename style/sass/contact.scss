@@ -7,12 +7,11 @@
 form{
     position: relative;
     top: 20%;
-    left: 50%;
     max-width: 500px;
     text-align: center;
     box-sizing: border-box;
     padding: 1em;
-    transform: translate(-250px,0);
+    margin: auto;
     border-radius: 10px;
     background-color: rgba(100,100,100,0.1);
 }

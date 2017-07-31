@@ -16,8 +16,6 @@ $document_root = str_repeat('../',(substr_count(getenv('SCRIPT_URL'),'/')));
         margin: auto;
         top: 40%;
     }
-    
-
 </style>
 <div id="welcomecontainer">
 <h2 id="welcomelogin">Hello <?= $_SESSION['uname']?></h2>

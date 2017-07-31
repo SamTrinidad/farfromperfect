@@ -11,7 +11,7 @@ final class Album {
     public static function Instance(){
         static $inst = null;
         if($inst === null){
-            $inst = new MusicPlaylist();
+            $inst = new Album();
         }
 
         $inst->fill();
@@ -36,8 +36,8 @@ final class Album {
             $query = $connection->query("SELECT photos.*, members.name FROM photos, members JOIN members_photos ON members_photos.uid = members.id;");
 
             while($row = $query->fetch_array()){
-                $photo = new Photo($row['sid'], $row['description'],$row['date'], $row['path'], $row['name']); 
-                array_push($this->photos, $song);
+                $photo = new Photo($row['pid'], $row['description'],$row['date'], $row['path'], $row['name']); 
+                array_push($this->photos, $photo);
             }
         }else{
             echo "Cannot Retrieve Archive";

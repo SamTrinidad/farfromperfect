@@ -27,3 +27,21 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+@media only screen and (max-width: 1190px) {
+    #coverBg {
+        animation: pan 20s linear infinite;
+    }
+
+    @keyframes pan {
+        0% {
+            background-position-x: left;
+        }
+        50% {
+            background-position-x: right;
+        }
+        100% {
+            background-position-x: left;
+        }
+    }
+}

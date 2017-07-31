@@ -14,7 +14,7 @@ body {
 }
 
 .coverLogo {
-    position: fixed;
+    position: absolute;
     top: 30%;
     left: 10%;
     width: 300px;
@@ -132,4 +132,44 @@ button {
 a {
         color: inherit; /* blue colors for links too */
         text-decoration: inherit; /* no underline */
+}
+
+@media only screen and (max-width: 1190px) {
+    nav {
+        height: 100%;
+        
+        .link {
+        position: relative;
+        top: 4em;
+        margin: 0.5em;
+        font-weight: bolder;
+        padding: 0.5em;
+        display: block;
+        color: $navColor;
+        box-sizing: border-box;
+        }
+        .link:hover {
+            border-bottom: solid $navColor 5px;
+        }
+        .activelink {
+            color: #fff;
+        }
+        #navlogo{
+            position: absolute;
+            left: 1em;
+            top: 1em;
+            display: inline-block;
+            object {
+                width: 100px;
+                pointer-events: none;
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 350px) {
+    .coverLogo {
+        width: 80%;
+    }
 }
