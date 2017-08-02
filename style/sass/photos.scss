@@ -3,6 +3,10 @@ $userbutton: green;
 
 $fontcolor: black;
 
+body {
+    background-color: rgba(200,40,50,0.5);
+}
+
 .userContainer {
     max-width: 100%;
     background-color: $usercontainer;
@@ -12,5 +16,47 @@ $fontcolor: black;
         font-size: 2em;
         border-bottom: 2px solid $fontcolor;
         margin-bottom: 5px;
+    }
+}
+
+#albumContainer {
+    
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    position: relative;
+    top: 20%;
+    width: 80%;
+    margin: auto;
+
+    flex-wrap: wrap;
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+
+.photo {
+    margin: 1%;
+    position: relative;
+    display: inline-block;
+    max-width: 200px;
+    height: 100px;
+    overflow: hidden;
+    align-self: flex-end;
+    img{
+        cursor: pointer;
+        display: table-cell;
+        vertical-align: bottom;
+        margin: auto;
+        opacity: 1;
+        height: auto;
+        width: 100%;
+        transition: opacity 0.3s;
+    }
+    img[data-src] {
+        opacity: 0;
     }
 }

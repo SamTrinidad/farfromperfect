@@ -1,4 +1,5 @@
  <link rel="stylesheet" href="/farfromperfect/public/styles/photos.css"> 
+
 <?php
 session_start();
 
@@ -10,9 +11,8 @@ if(isset($_SESSION['id'])){
     <button id="addPhoto">Add Photo</button>
     <a href="<?= $document_root ?>/farfromperfect/public/photos/logout"><button>Logout</button></a>
 </div>
-
     <form id="photoform" action="blog/addpost">
-        <input type="file" placeholder="Image (optional)"><br>
+        <input type="file" placeholder="Image"><br>
         <textarea name="Description" rows="10" cols="30"></textarea>
         <input type="submit" value="submit">
     </form>
@@ -23,7 +23,6 @@ if(isset($_SESSION['id'])){
 <?php
 //get the photos from the controller
 $album = $data['album']->getPhotos();
-//iterate through all the songs
 
 $json = new stdClass();
 
@@ -37,12 +36,8 @@ foreach($album as $photo){
     
     $json->{$object->pid} = $object;
 ?>
-<!-- Push the songs into the js file  -->
     <div class="photo" id="pid<?=$object->pid ?>">
-        <div class="photodescription"><?= $object->description ?>.</div>
-        <div class="photodate"><?= $object->date ?></div>
-        <img src="<?= $object->path?>">
-        
+        <img data-src="<?= $object->path?>">
     </div>
 <?php
 }
@@ -51,3 +46,4 @@ foreach($album as $photo){
 pl = <?= json_encode($json)?>
 </script>
 </div>
+<script src="/farfromperfect/public/js/photos.js"></script>

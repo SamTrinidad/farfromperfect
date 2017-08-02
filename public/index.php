@@ -43,42 +43,15 @@ $document_root = str_repeat('../',(substr_count(getenv('SCRIPT_URL'),'/')));
 ?>
 </div>
 
-
+<script type="application/javascript" src="<?= $document_root ?>/farfromperfect/public/js/script.js"></script>
 
 <!--Loader-->
 <div class="loader">
   <div class="loaderlogo">Loading</div>
 </div>
-<style>
-.loader {
-    font-size: 2em;
-    font-weight: bolder;
-    -webkit-animation: load-out 1s;
-    animation: load-out 1s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
 
-@-webkit-keyframes load-out {
-    from {
-        top: 0;
-    }
-
-    to {
-        top: 100%;
-    }
-}
-
-@keyframes load-out {
-    from {
-        top: 0;
-    }
-
-    to {
-        top: -100%;
-    }
-}
-</style>
-<script type="application/javascript" src="<?= $document_root ?>/farfromperfect/public/js/script.js"></script>
+<noscript>
+<link rel="stylesheet" type="text/css" href="<?= $document_root ?>/farfromperfect/public/styles/loader.css" />
+</noscript>
 </body>
 </html>

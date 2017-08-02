@@ -8,6 +8,9 @@ $(document).ready(function(){
         });
         $('#burgercontainer svg').toggle();
     });
+
+
+    $("head").append($("<link rel='stylesheet' href='/farfromperfect/public/styles/loader.css' type='text/css' media='screen' />"));
     
 });
 

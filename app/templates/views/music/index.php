@@ -1,4 +1,4 @@
- <link rel="stylesheet" href="/farfromperfect/public/styles/music.css"> 
+<link rel="stylesheet" href="/farfromperfect/public/styles/music.css"> 
 <script src="//api.html5media.info/1.2.2/html5media.min.js"></script>
 <script src="/farfromperfect/public/js/music.js"></script>
 <div id="musicplayer">
