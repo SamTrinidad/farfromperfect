@@ -5,14 +5,13 @@ class Photo {
     private $description;
     private $date;
     private $path;
-    private $person;
 
-    public function __construct($pid, $description, $date, $path, $person){
+
+    public function __construct($pid, $description, $date, $path){
         $this->pid = $pid;
         $this->description = $description;
         $this->date = $date;
         $this->path = $path;
-        $this->person = $person;
     }
 
     public function getId(){

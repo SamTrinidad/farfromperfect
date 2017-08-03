@@ -33,10 +33,10 @@ final class Album {
         $connection = $db->getConnection(); //get the connection instance
  
         if($connection){
-            $query = $connection->query("SELECT photos.*, members.name FROM photos, members JOIN members_photos ON members_photos.uid = members.id;");
+            $query = $connection->query("SELECT * FROM photos");
 
             while($row = $query->fetch_array()){
-                $photo = new Photo($row['pid'], $row['description'],$row['date'], $row['path'], $row['name']); 
+                $photo = new Photo($row['pid'], $row['description'],$row['date'], $row['path']); 
                 array_push($this->photos, $photo);
             }
         }else{
