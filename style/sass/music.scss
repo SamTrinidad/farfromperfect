@@ -89,3 +89,23 @@ body {
         background-color: $playerBG2;
     }
 }
+
+
+#coverfooter {
+    color: #fff;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    bottom: 0.5em;
+    text-align: center;
+    .clogo {
+        display: inline-block;
+        vertical-align: middle;
+        width: 2em;
+        margin: 1em;
+    }
+    span {
+        display: block;
+        font-size: 0.75em;
+    }
+}

@@ -46,3 +46,4 @@ foreach($playlist as $song){
 pl = <?= json_encode($json)?>
 </script>
 </div>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/farfromperfect/app/templates/views/templating/footer.php'; ?>

@@ -19,8 +19,8 @@ body {
     }
 }
 
-#albumContainer {
-    
+
+#albumContainer { 
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -28,9 +28,10 @@ body {
     display: flex;
 
     position: relative;
-    top: 20%;
+    top: 15%;
     width: 80%;
     margin: auto;
+    margin-bottom: 3em;
 
     flex-wrap: wrap;
     -webkit-flex-flow: row wrap;
@@ -41,22 +42,49 @@ body {
 .photo {
     margin: 1%;
     position: relative;
-    display: inline-block;
-    max-width: 200px;
-    height: 100px;
+    max-width: 300px;
     overflow: hidden;
     align-self: flex-end;
+
+    .phelp {
+        display: inline-block;
+        vertical-align: middle;
+    }
     img{
         cursor: pointer;
-        display: table-cell;
-        vertical-align: bottom;
-        margin: auto;
+        width: auto;
+        height: 200px;
+        display: inline-block;
+        vertical-align: middle;
         opacity: 1;
-        height: auto;
-        width: 100%;
         transition: opacity 0.3s;
     }
     img[data-src] {
         opacity: 0;
+    }
+}
+
+#coverfooter {
+    position: relative;
+    margin-top: 2em;
+    color: #fff;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+    .clogo {
+        display: inline-block;
+        vertical-align: middle;
+        width: 2em;
+        margin: 1em;
+    }
+    span {
+        display: block;
+        font-size: 0.75em;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #albumContainer { 
+        width: 95%;
     }
 }

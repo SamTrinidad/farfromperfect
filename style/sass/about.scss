@@ -58,14 +58,11 @@ h1{
     -ms-filter: grayscale(80%);
     filter: grayscale(80%);
 
-    #coverfooter {
-        position: absolute;
-        bottom: 1em;
-    }
 }
 
 
 #coverfooter {
+    position: absolute;
     color: #fff;
     z-index: 10;
     width: 100%;
@@ -97,6 +94,19 @@ h1{
         }
         100% {
             background-position-x: left;
+        }
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #a1 {
+        p {
+            font-size: 2em;
+            width: 90%;
+        }
+        h2 {
+            font-size: 2em;
+            width: 90%;
         }
     }
 }

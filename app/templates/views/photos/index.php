@@ -37,7 +37,7 @@ foreach($album as $photo){
     $json->{$object->pid} = $object;
 ?>
     <div class="photo" id="pid<?=$object->pid ?>">
-        <img data-src="<?= $object->path?>">
+        <span class="phelp"></span><img data-src="<?= $object->path?>">
     </div>
 <?php
 }
@@ -45,5 +45,7 @@ foreach($album as $photo){
 <script>
 pl = <?= json_encode($json)?>
 </script>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/farfromperfect/app/templates/views/templating/footer.php'; ?>
 </div>
 <script src="/farfromperfect/public/js/photos.js"></script>
+
