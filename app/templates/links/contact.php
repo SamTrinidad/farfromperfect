@@ -14,25 +14,29 @@ class Contact extends Controller{
 
             if(!preg_match($email_exp,$_POST['email'])) {
                 $error.= 'The Email Address you entered does not appear to be valid.';
+            }else{
+            	$email = $_POST['email'];
             }
 
             $string_exp = "/^[A-Za-z .'-]+$/";
 
             if(!preg_match($string_exp,$_POST['name'])) {
                 $error .= 'The name you entered does not appear to be valid';
+            }else{
+            	$name = $_POST['name'];
             }
-
+		$message = $_POST['message'];
 
         }else{    
             $error = 'There was an error sending your message. Message was not sent!';
         }
         if(strlen($error) < 1 ){
 
-            $email_message = "Name: ". clean_string($name)."\n";
-            $email_message .= "Email: ". clean_string($email)."\n";
-            $email_message .= "Message:\n". clean_string($message)."\n";
+            $email_message = "Name: ". $this->clean_string($name)."\n";
+            $email_message .= "Email: ". $this->clean_string($email)."\n";
+            $email_message .= "Message:\n". $this->clean_string($message)."\n";
 
-            $recipient = "samtrinidad@gmail.com";
+            $recipient = "farfromperfect@5am-design.com";
             $subject = "FFP CONTACT - From: $name";
             $mailheader = "From: $email \r\n";
             mail($recipient, $subject, $email_message, $mailheader) or $error = 'There was an error sending your message. Message was not sent!';
@@ -47,7 +51,7 @@ class Contact extends Controller{
         $this->view('contact/index',['message'=> $output]);
     }
 
-    private static function clean_string($str){
+    private function clean_string($str){
       $bad = array("content-type","bcc:","to:","cc:","href");
       return str_replace($bad,"",$str);
     }

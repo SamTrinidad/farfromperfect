@@ -4,7 +4,7 @@
 <div id="musicplayer">
 <div id="currentSong"><h2><div id="currentTitle"></div></h2>&nbsp;&nbsp;<div id="currentYear"></div><div id="currentDuration"></div></div>
 <div id="next-prev"><div id="prevsong">&laquo;</div><div id="nextsong">&raquo;</div></div>
-<audio preload="" id="audio" controls="controls" src="/farfromperfect/app/songs/4.mp3">Your browser does not support HTML5 Audio.</audio>
+<audio preload="" id="audio" controls="controls" src="/farfromperfect/public/media/songs/4.mp3">Your browser does not support HTML5 Audio.</audio>
 
 <?php
 
